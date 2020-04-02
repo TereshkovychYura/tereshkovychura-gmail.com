@@ -10,4 +10,7 @@ export class RequirementService {
   getRequirements() {
     return this.requirement.slice();
   }
+  onAddItem(skill: string, description: string) {
+    this.requirement.push(new Requirement(skill, description));
+  }
 }

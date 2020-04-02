@@ -7,6 +7,7 @@ import {
   EventEmitter
 } from '@angular/core';
 import { Requirement } from '../requirement-model';
+import { RequirementService } from '../requirement.service';
 @Component({
   selector: 'app-requirement-edit',
   templateUrl: './requirement-edit.component.html',
@@ -19,10 +20,4 @@ export class RequirementEditComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-  onAddItem() {
-    const skills = this.skillsInputRef.nativeElement.value;
-    const description = this.descInputRef.nativeElement.value;
-    const newRequirement = new Requirement(skills, description);
-    this.newRequirementAdded.emit(newRequirement);
-  }
 }

@@ -1,7 +1,11 @@
 <div class="row">
   <div class="col">
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let item of requirements">
+      <li
+        class="list-group-item"
+        *ngFor="let item of requirements; let i = index"
+        (click)="onEdit(i)"
+      >
         {{ item.name }} | {{ item.description }}
       </li>
     </ul>
@@ -9,8 +13,6 @@
 </div>
 <div class="row">
   <div class="col">
-    <app-requirement-edit
-      (newRequirementAdded)="onRequirementAdded($event)"
-    ></app-requirement-edit>
+    <app-requirement-edit></app-requirement-edit>
   </div>
 </div>

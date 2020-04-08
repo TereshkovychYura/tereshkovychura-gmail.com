@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +14,9 @@ import { RequirementEditComponent } from './requirements-list/requirement-edit/r
 
 import { EventService } from './events/event.service';
 import { RequirementService } from './requirements-list/requirement.service';
+import { EventStartComponent } from './events/event-start/event-start.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { EventEditComponent } from './events/event-edit/event-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +27,13 @@ import { RequirementService } from './requirements-list/requirement.service';
     EventItemComponent,
     EventDetailComponent,
     RequirementsListComponent,
-    RequirementEditComponent
+    RequirementEditComponent,
+    EventStartComponent,
+    PageNotFoundComponent,
+    EventEditComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [EventService, RequirementService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

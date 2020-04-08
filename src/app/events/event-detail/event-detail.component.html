@@ -9,29 +9,29 @@
 </div>
 <div class="row">
   <div class="col">
-    <button class="btn btn-success dropdown-toggle">
+    <p></p>
+    <button class="btn btn-success" (click)="onAddRequirements()">
+      Add Requirements
+    </button>
+    <button
+      class="btn btn-warning"
+      routerLink="/edit"
+      (click)="onSendEdit(event)"
+    >
       Edit
     </button>
-    <ul class="dropdown-menu">
-      <li>
-        <a href="#">Title</a>
-      </li>
-      <li>
-        <a href="#">Description</a>
-      </li>
-      <li>
-        <a href="#">Delete</a>
+    <button class="btn btn-danger">Delete</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col">{{ event.name }} - {{ event.description }}</div>
+</div>
+<div class="row">
+  <div class="col">
+    <ul class="list-group">
+      <li *ngFor="let requirement of event.requirements">
+        {{ requirement.name }} - {{ requirement.description }}
       </li>
     </ul>
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    {{ event.description }}
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    Skiills
   </div>
 </div>

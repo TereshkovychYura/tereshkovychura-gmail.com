@@ -6,9 +6,9 @@
 <div class="row">
   <div class="col">
     <app-event-item
-      *ngFor="let item of events"
+      *ngFor="let item of events; let i = index"
       [event]="item"
-      (click)="onEventSelected(item)"
+      [index]="i"
     ></app-event-item>
   </div>
 </div>

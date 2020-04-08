@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Event } from './event-model';
+import { EventService } from './event.service';
 
 @Component({
   selector: 'app-events',
@@ -8,7 +9,11 @@ import { Event } from './event-model';
 })
 export class EventsComponent implements OnInit {
   selectedEvent: Event;
-  constructor() {}
+  constructor(private eventService: EventService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.eventService.eventSelected.subscribe((event: Event) => {
+      this.selectedEvent = event;
+    });
+  }
 }

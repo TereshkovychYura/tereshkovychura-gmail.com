@@ -2,10 +2,13 @@ import { Event } from './event-model';
 import { Requirement } from '../requirements-list/requirement-model';
 import { Injectable, EventEmitter } from '@angular/core';
 import { RequirementService } from '../requirements-list/requirement.service';
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class EventService {
+  startEdit = new Subject<number>();
   eventSelected = new EventEmitter<Event>();
+  updateEvents = new EventEmitter<Event[]>();
   private events: Event[] = [
     new Event(
       'Java Script Patterns',
@@ -29,5 +32,20 @@ export class EventService {
   }
   getSingleEvent(index: number) {
     return this.events[index];
+  }
+  onAddEvent(event: Event) {
+    this.events.push(event);
+    this.updateEvents.emit(this.events.slice());
+  }
+  updateEvent(index: number, newEvent: Event) {
+    this.events[index] = newEvent;
+    this.updateEvents.next(this.events.slice());
+  }
+  onDeleteEvent(index: number) {
+    if (index !== -1) {
+      this.events.splice(index, 1);
+    }
+    this.updateEvents.next(this.events.slice());
+    console.log(this.events);
   }
 }

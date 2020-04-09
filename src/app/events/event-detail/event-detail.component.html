@@ -13,14 +13,10 @@
     <button class="btn btn-success" (click)="onAddRequirements()">
       Add Requirements
     </button>
-    <button
-      class="btn btn-warning"
-      routerLink="/edit"
-      (click)="onSendEdit(event)"
-    >
+    <button class="btn btn-warning" (click)="onSendEdit()">
       Edit
     </button>
-    <button class="btn btn-danger">Delete</button>
+    <button class="btn btn-danger" (click)="onDeleteReq()">Delete</button>
   </div>
 </div>
 <div class="row">

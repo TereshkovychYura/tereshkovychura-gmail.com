@@ -1,16 +1,60 @@
-<div class="row">
-  <div class="col">
-    <form>
-      <div class="row">
-        <div class="col-sm-5 form-group">
-          <label for="skills">Skills</label>
-          <input type="text" class="form-control" />
-        </div>
-        <div class="col-sm-7 form-group">
-          <label id="desc">Description</label>
-          <input type="text" class="form-control" />
+<form (ngSubmit)="onEditEvent(form)" #form="ngForm">
+  <div class="form-row">
+    <div class="form-group col-md-10">
+      <label>Name</label>
+      <input
+        id="name"
+        class="form-control"
+        value="{{ event.name }}"
+        placeholder="Name"
+        name="name"
+      />
+    </div>
+    <div class="form-group col-md-10">
+      <label>Description</label>
+      <input
+        class="form-control"
+        value="{{ event.description }}"
+        placeholder="Description"
+        name="description"
+      />
+    </div>
+    <div class="form-group col-md-10">
+      <label>Image</label>
+      <input
+        class="form-control"
+        value="{{ event.image }}"
+        placeholder="Image"
+        name="image"
+      />
+    </div>
+    <div *ngIf="editMode" class="form-group col-md-12">
+      <label>Requirements</label>
+      <div c *ngFor="let requirement of event.requirements">
+        <div class="row">
+          <div class="col-md-5">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ requirement.name }}"
+              name="reqName"
+            />
+          </div>
+          <div class="col-md-7">
+            <label for="description">Description</label>
+            <input
+              type="text"
+              class="form-control"
+              value="{{ requirement.description }}"
+              name="descDesc"
+            />
+          </div>
         </div>
       </div>
-    </form>
+    </div>
   </div>
-</div>
+  <button type="submit" class="btn btn-primary">
+    {{ editMode ? "Update" : "Add" }}
+  </button>
+</form>

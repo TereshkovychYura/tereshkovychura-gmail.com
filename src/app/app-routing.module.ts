@@ -14,7 +14,9 @@ const routes: Routes = [
     component: EventsComponent,
     children: [
       { path: '', component: EventStartComponent },
+      { path: 'new', component: EventEditComponent },
       { path: ':id', component: EventDetailComponent },
+      { path: ':id/edit', component: EventEditComponent },
     ],
   },
   { path: 'edit', component: EventEditComponent },
